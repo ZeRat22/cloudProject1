@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AWS Management Console</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body class="aws-body">
+
+    <!-- Header Navigation -->
+    <header class="header">
+        <nav class="nav container">
+            <div class="logo">
+                <i data-lucide="cloud" class="logo-icon"></i> <span class="logo-accent">CLOUD</span>NEXUS
+            </div>
+            <ul class="nav-links">
+                <li><a href="aws.html">AWS</a></li>
+                <li><a href="azure.html">Azure</a></li>
+                <li><a href="gcp.html">GCP</a></li>
+                <li><a href="../index.html" class="btn btn-primary">Main Site</a></li>
+            </ul>
+            <div class="menu-toggle">
+                <i data-lucide="menu"></i>
+            </div>
+        </nav>
+    </header>
+
+    <header class="aws-header" style="margin-top: 70px;">
+        <div class="aws-logo">
+            <i data-lucide="box"></i>
+            <span>aws</span>
+        </div>
+        <div class="aws-search-container">
+            <div class="aws-search">
+                <i data-lucide="search" size="14"></i>
+                <span>Search</span>
+                <span style="margin-left: auto; background: #eaeded; padding: 0 4px; border-radius: 2px; font-size: 0.7rem; color: #545b64;">[Alt+S]</span>
+            </div>
+        </div>
+        <div class="aws-user-nav">
+            <div class="aws-nav-icon"><i data-lucide="terminal" size="18"></i></div>
+            <div class="aws-nav-icon"><i data-lucide="bell" size="18"></i></div>
+            <div class="aws-nav-icon"><i data-lucide="settings" size="18"></i></div>
+            <div class="aws-nav-icon"><i data-lucide="help-circle" size="18"></i></div>
+            <div style="display: flex; align-items: center; gap: 0.4rem;">
+                <span id="current-region">N. Virginia</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 0.4rem; cursor: pointer; background: #414750; padding: 2px 8px; border-radius: 2px;">
+                <span>CloudNexus</span>
+                <i data-lucide="chevron-down" size="14"></i>
+            </div>
+        </div>
+    </header>
+
+    <main class="aws-dashboard">
+        <div class="aws-welcome">
+            <h1>Welcome to AWS</h1>
+        </div>
+
+        <div class="aws-grid">
+            <!-- Recently Visited -->
+            <div class="aws-card" style="grid-column: span 2;">
+                <div class="aws-card-header">
+                    <h3>Recently visited</h3>
+                </div>
+                <div class="aws-card-content">
+                    <div class="aws-service-grid">
+                        <div class="aws-service-item" data-service="ec2"><i data-lucide="server"></i><span>EC2</span></div>
+                        <div class="aws-service-item" data-service="s3"><i data-lucide="hard-drive"></i><span>S3</span></div>
+                        <div class="aws-service-item" data-service="lambda"><i data-lucide="zap"></i><span>Lambda</span></div>
+                        <div class="aws-service-item" data-service="rds"><i data-lucide="database"></i><span>RDS</span></div>
+                        <div class="aws-service-item" data-service="iam"><i data-lucide="shield"></i><span>IAM</span></div>
+                        <div class="aws-service-item" data-service="vpc"><i data-lucide="cloud"></i><span>VPC</span></div>
+                        <div class="aws-service-item" data-service="dynamodb"><i data-lucide="table"></i><span>DynamoDB</span></div>
+                        <div class="aws-service-item" data-service="cloudwatch"><i data-lucide="activity"></i><span>CloudWatch</span></div>
+                    </div>
+                </div>
+                <div class="aws-card-footer">View all services</div>
+            </div>
+
+            <!-- AWS Health -->
+            <div class="aws-card">
+                <div class="aws-card-header">
+                    <h3>AWS Health</h3>
+                </div>
+                <div class="aws-card-content">
+                    <div class="aws-status-indicator">
+                        <div class="aws-status-dot"></div>
+                        <span id="health-status">Your infrastructure is healthy.</span>
+                    </div>
+                    <p style="font-size: 0.8rem; color: #545b64; margin-top: 0.5rem;">No open issues or scheduled changes.</p>
+                </div>
+                <div class="aws-card-footer" onclick="refreshHealth()">Refresh status</div>
+            </div>
+
+            <!-- Cost and Usage -->
+            <div class="aws-card">
+                <div class="aws-card-header">
+                    <h3>Cost and usage</h3>
+                </div>
+                <div class="aws-card-content">
+                    <p style="font-size: 0.8rem; color: #545b64;">Estimated month-to-date cost</p>
+                    <p style="font-size: 1.6rem; font-weight: 700; margin: 0.5rem 0;">$<span id="aws-cost">142.50</span></p>
+                    <div class="aws-cost-graph">
+                        <div class="aws-cost-bar" style="height: 40%;"></div>
+                        <div class="aws-cost-bar" style="height: 55%;"></div>
+                        <div class="aws-cost-bar" style="height: 45%;"></div>
+                        <div class="aws-cost-bar" style="height: 70%;"></div>
+                        <div class="aws-cost-bar" style="height: 85%;"></div>
+                        <div class="aws-cost-bar" style="height: 60%;"></div>
+                        <div class="aws-cost-bar" style="height: 75%;"></div>
+                    </div>
+                </div>
+                <div class="aws-card-footer">View billing dashboard</div>
+            </div>
+
+            <!-- Build a Solution -->
+            <div class="aws-card">
+                <div class="aws-card-header">
+                    <h3>Build a solution</h3>
+                </div>
+                <div class="aws-card-content">
+                    <p style="font-size: 0.85rem; margin-bottom: 1rem;">Start building with simple wizards and automated workflows.</p>
+                    <div style="display: grid; gap: 0.8rem;">
+                        <div style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.85rem; color: #0073bb; font-weight: 500;">
+                            <i data-lucide="layout" size="16"></i> Launch a virtual machine
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.85rem; color: #0073bb; font-weight: 500;">
+                            <i data-lucide="globe" size="16"></i> Build a web app
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Explore AWS -->
+            <div class="aws-card">
+                <div class="aws-card-header">
+                    <h3>Explore AWS</h3>
+                </div>
+                <div class="aws-card-content">
+                    <div style="display: grid; gap: 1rem;">
+                        <div>
+                            <p style="font-size: 0.85rem; font-weight: 700;">AWS Free Tier</p>
+                            <p style="font-size: 0.8rem; color: #545b64;">Explore 100+ AWS products for free.</p>
+                        </div>
+                        <div>
+                            <p style="font-size: 0.85rem; font-weight: 700;">AWS Training</p>
+                            <p style="font-size: 0.8rem; color: #545b64;">Learn from AWS experts and build your skills.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div style="margin-top: 3rem; text-align: center; border-top: 1px solid #eaeded; padding-top: 2rem;">
+            <a href="../index.html" style="color: #0073bb; font-weight: 500; font-size: 0.9rem; text-decoration: none;">&larr; Return to CloudNexus Home</a>
+        </div>
+    </main>
+
+    <script>
+      lucide.createIcons();
+
+      // Mobile Menu Toggle
+      const menuToggle = document.querySelector('.menu-toggle');
+      const navLinks = document.querySelector('.nav-links');
+      
+      if (menuToggle) {
+          menuToggle.addEventListener('click', () => {
+              navLinks.classList.toggle('active');
+          });
+      }
+
+      // Service Search Simulation
+      const searchBox = document.querySelector('.aws-search');
+      // In a real app we'd use an input, but since it's a clone we'll just simulate typing on click
+      searchBox.addEventListener('click', () => {
+          const term = prompt("Enter service name (e.g., s3, lambda):").toLowerCase();
+          document.querySelectorAll('.aws-service-item').forEach(item => {
+              if (item.getAttribute('data-service').includes(term)) {
+                  item.classList.add('highlight');
+                  setTimeout(() => item.classList.remove('highlight'), 2000);
+              }
+          });
+      });
+
+      // Live Cost Updater
+      setInterval(() => {
+          const costSpan = document.getElementById('aws-cost');
+          let current = parseFloat(costSpan.textContent);
+          current += (Math.random() * 0.05);
+          costSpan.textContent = current.toFixed(2);
+          
+          // Randomly update a bar in the graph
+          const bars = document.querySelectorAll('.aws-cost-bar');
+          const randomBar = bars[Math.floor(Math.random() * bars.length)];
+          randomBar.style.height = (Math.random() * 50 + 30) + '%';
+      }, 5000);
+
+      // Random Resource Simulation
+      function updateStats() {
+          // Randomly update welcome text or other small stats if added
+          const welcome = document.querySelector('.aws-welcome h1');
+          const hours = new Date().getHours();
+          const greeting = hours < 12 ? "Good morning" : hours < 18 ? "Good afternoon" : "Good evening";
+          welcome.textContent = `${greeting}, CloudNexus`;
+      }
+      updateStats();
+
+      // Health Refresh
+      function refreshHealth() {
+          const status = document.getElementById('health-status');
+          const dot = document.querySelector('.aws-status-dot');
+          
+          status.textContent = "Checking system status...";
+          dot.style.background = "#fbbc04";
+          
+          setTimeout(() => {
+              dot.style.background = "#037f0c";
+              status.textContent = "Your infrastructure is healthy.";
+          }, 1500);
+      }
+    </script>
+</body>
+</html>

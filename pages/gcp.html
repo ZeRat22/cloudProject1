@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Cloud Console</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        body { font-family: 'Roboto', sans-serif; }
+    </style>
+</head>
+<body class="gcp-body">
+
+    <!-- Header Navigation -->
+    <header class="header">
+        <nav class="nav container">
+            <div class="logo">
+                <i data-lucide="cloud" class="logo-icon"></i> <span class="logo-accent">CLOUD</span>NEXUS
+            </div>
+            <ul class="nav-links">
+                <li><a href="aws.html">AWS</a></li>
+                <li><a href="azure.html">Azure</a></li>
+                <li><a href="gcp.html">GCP</a></li>
+                <li><a href="../index.html" class="btn btn-primary">Main Site</a></li>
+            </ul>
+            <div class="menu-toggle">
+                <i data-lucide="menu"></i>
+            </div>
+        </nav>
+    </header>
+
+    <header class="gcp-header" style="margin-top: 70px;">
+        <div class="gcp-logo">
+            <i data-lucide="menu" style="color: #5f6368; cursor: pointer;"></i>
+            <span style="font-weight: 400; font-size: 1.2rem; color: #5f6368; margin-left: 0.5rem;">Google Cloud Platform</span>
+        </div>
+        <div class="gcp-project-selector">
+            <span id="current-project">CloudNexus-Prod</span>
+        </div>
+        <div class="gcp-search-container">
+            <div class="gcp-search">
+                <i data-lucide="search" size="18"></i>
+                <span style="font-size: 0.9rem; opacity: 0.7;">Search resources, services, and products</span>
+            </div>
+        </div>
+        <div class="gcp-top-icons">
+            <i data-lucide="terminal" size="18" id="terminal-btn" style="cursor: pointer;"></i>
+            <i data-lucide="bell" size="18" style="cursor: pointer;"></i>
+            <i data-lucide="settings" size="18" style="cursor: pointer;"></i>
+            <i data-lucide="help-circle" size="18" style="cursor: pointer;"></i>
+            <div style="width: 32px; height: 32px; background: #1a73e8; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.9rem; font-weight: 500; cursor: pointer;">K</div>
+        </div>
+    </header>
+
+    <div class="gcp-main-container">
+        <main class="gcp-dashboard">
+            <div class="gcp-banner">
+                <div>
+                    <h2 style="font-size: 1.2rem; font-weight: 500;">Welcome to the Google Cloud Platform!</h2>
+                    <p style="font-size: 0.85rem; margin-top: 0.2rem; opacity: 0.9;">Take a quick tour to learn about the new features and tools available to you.</p>
+                </div>
+                <div style="display: flex; gap: 1rem;">
+                    <button style="background: white; color: #1a73e8; border: none; padding: 0.5rem 1rem; border-radius: 4px; font-weight: 500; font-size: 0.85rem; cursor: pointer;">TAKE A TOUR</button>
+                    <i data-lucide="x" size="18" style="cursor: pointer;"></i>
+                </div>
+            </div>
+
+            <div class="gcp-content-grid">
+                <!-- Project Info -->
+                <div class="gcp-card">
+                    <div class="gcp-card-header">
+                        <h3>Project info</h3>
+                        <i data-lucide="more-vertical" size="18" style="color: #5f6368; cursor: pointer;"></i>
+                    </div>
+                    <div class="gcp-card-content">
+                        <div class="gcp-info-row">
+                            <span class="gcp-info-label">Project name</span>
+                            <span class="gcp-info-value" id="info-project-name">CloudNexus-Prod</span>
+                        </div>
+                        <div class="gcp-info-row">
+                            <span class="gcp-info-label">Project ID</span>
+                            <span class="gcp-info-value">k21-demo-307210</span>
+                        </div>
+                        <div class="gcp-info-row">
+                            <span class="gcp-info-label">Project number</span>
+                            <span class="gcp-info-value">102938475612</span>
+                        </div>
+                    </div>
+                    <div class="gcp-card-footer">
+                        <a href="#" class="gcp-link">Go to project settings</a>
+                    </div>
+                </div>
+
+                <!-- Resources -->
+                <div class="gcp-card">
+                    <div class="gcp-card-header">
+                        <h3>Resources</h3>
+                        <i data-lucide="more-vertical" size="18" style="color: #5f6368; cursor: pointer;"></i>
+                    </div>
+                    <div class="gcp-card-content">
+                        <div class="gcp-resource-item">
+                            <span style="font-size: 0.9rem;">Compute Engine</span>
+                            <span style="color: #5f6368; font-size: 0.85rem;">2 instances</span>
+                        </div>
+                        <div class="gcp-resource-item">
+                            <span style="font-size: 0.9rem;">Cloud Storage</span>
+                            <span style="color: #5f6368; font-size: 0.85rem;">5 buckets</span>
+                        </div>
+                        <div class="gcp-resource-item">
+                            <span style="font-size: 0.9rem;">Cloud SQL</span>
+                            <span style="color: #5f6368; font-size: 0.85rem;">1 instance</span>
+                        </div>
+                    </div>
+                    <div class="gcp-card-footer">
+                        <a href="#" class="gcp-link">View all resources</a>
+                    </div>
+                </div>
+
+                <!-- APIs & Services -->
+                <div class="gcp-card">
+                    <div class="gcp-card-header">
+                        <h3>APIs & Services</h3>
+                        <i data-lucide="more-vertical" size="18" style="color: #5f6368; cursor: pointer;"></i>
+                    </div>
+                    <div class="gcp-card-content">
+                        <p style="font-size: 0.85rem; color: #5f6368; margin-bottom: 1rem;">Requests per second</p>
+                        <div id="traffic-sim" style="height: 100px; display: flex; align-items: flex-end; gap: 4px;">
+                            <!-- Bars generated by JS -->
+                        </div>
+                    </div>
+                    <div class="gcp-card-footer">
+                        <a href="#" class="gcp-link">Go to APIs overview</a>
+                    </div>
+                </div>
+
+                <!-- Billing -->
+                <div class="gcp-card">
+                    <div class="gcp-card-header">
+                        <h3>Billing</h3>
+                        <i data-lucide="more-vertical" size="18" style="color: #5f6368; cursor: pointer;"></i>
+                    </div>
+                    <div class="gcp-card-content">
+                        <p style="font-size: 0.85rem; color: #5f6368;">Current month estimate</p>
+                        <p style="font-size: 1.8rem; font-weight: 400; color: #202124; margin: 0.5rem 0;">$<span id="gcp-cost">85.20</span></p>
+                    </div>
+                    <div class="gcp-card-footer">
+                        <a href="#" class="gcp-link">View detailed report</a>
+                    </div>
+                </div>
+
+                <!-- Google Cloud Status -->
+                <div class="gcp-card">
+                    <div class="gcp-card-header">
+                        <h3>Google Cloud Status</h3>
+                        <i data-lucide="more-vertical" size="18" style="color: #5f6368; cursor: pointer;"></i>
+                    </div>
+                    <div class="gcp-card-content">
+                        <div class="gcp-status-ok">
+                            <i data-lucide="check-circle" size="18"></i>
+                            <span>Google Cloud is fully operational</span>
+                        </div>
+                        <p style="font-size: 0.8rem; color: #5f6368; margin-top: 0.8rem;">Updated 2 mins ago. No issues reported across all regions.</p>
+                    </div>
+                    <div class="gcp-card-footer">
+                        <a href="#" class="gcp-link">Status dashboard</a>
+                    </div>
+                </div>
+
+                <!-- News -->
+                <div class="gcp-card">
+                    <div class="gcp-card-header">
+                        <h3>News</h3>
+                        <i data-lucide="more-vertical" size="18" style="color: #5f6368; cursor: pointer;"></i>
+                    </div>
+                    <div class="gcp-card-content">
+                        <div style="display: grid; gap: 1rem;">
+                            <div>
+                                <p style="font-size: 0.85rem; font-weight: 500;">Next '26: Registration is now open</p>
+                                <p style="font-size: 0.75rem; color: #5f6368;">Join us for the premier cloud event of the year.</p>
+                            </div>
+                            <div>
+                                <p style="font-size: 0.85rem; font-weight: 500;">New: Vertex AI Agents</p>
+                                <p style="font-size: 0.75rem; color: #5f6368;">Build and deploy generative AI agents faster.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div style="margin-top: 3rem; text-align: center; border-top: 1px solid #dadce0; padding: 2rem 0;">
+                <a href="../index.html" class="gcp-link" style="font-size: 0.95rem;">&larr; Return to CloudNexus Home</a>
+            </div>
+        </main>
+    </div>
+
+    <div class="gcp-terminal" id="cloud-shell">
+        <div style="display: flex; justify-content: space-between; margin-bottom: 1rem; border-bottom: 1px solid #5f6368; padding-bottom: 5px;">
+            <span>Cloud Shell (bash)</span>
+            <i data-lucide="x" size="16" style="cursor: pointer;" id="close-terminal"></i>
+        </div>
+        <div id="terminal-content">
+            cloudnexus@google-cloud:~$ <span class="cursor">|</span>
+        </div>
+    </div>
+
+    <script>
+      lucide.createIcons();
+
+      // Mobile Menu Toggle
+      const menuToggle = document.querySelector('.menu-toggle');
+      const navLinks = document.querySelector('.nav-links');
+      
+      if (menuToggle) {
+          menuToggle.addEventListener('click', () => {
+              navLinks.classList.toggle('active');
+          });
+      }
+
+      // Cloud Shell Terminal
+      const terminalBtn = document.getElementById('terminal-btn');
+      const terminal = document.getElementById('cloud-shell');
+      const closeTerminal = document.getElementById('close-terminal');
+      const terminalContent = document.getElementById('terminal-content');
+
+      terminalBtn.addEventListener('click', () => {
+          terminal.classList.add('active');
+          terminalContent.innerHTML += "<br>Provisioning Cloud Shell machine... done.<br>Connecting to instance... done.<br>cloudnexus@google-cloud:~$ ";
+      });
+
+      closeTerminal.addEventListener('click', () => {
+          terminal.classList.remove('active');
+      });
+
+      // Traffic Simulation
+      function simulateTraffic() {
+          const container = document.getElementById('traffic-sim');
+          container.innerHTML = '';
+          for (let i = 0; i < 20; i++) {
+              const h = Math.random() * 80 + 10;
+              const bar = document.createElement('div');
+              bar.style.width = '100%';
+              bar.style.height = h + '%';
+              bar.style.background = '#1a73e8';
+              bar.style.borderRadius = '2px';
+              container.appendChild(bar);
+          }
+      }
+      simulateTraffic();
+
+      // Live Cost Updater
+      setInterval(() => {
+          const costSpan = document.getElementById('gcp-cost');
+          let current = parseFloat(costSpan.textContent);
+          current += (Math.random() * 0.02);
+          costSpan.textContent = current.toFixed(2);
+          
+          // Randomly update traffic bars
+          const bars = document.querySelectorAll('#traffic-sim div');
+          if (bars.length > 0) {
+              const randomBar = bars[Math.floor(Math.random() * bars.length)];
+              randomBar.style.height = (Math.random() * 80 + 10) + '%';
+          }
+      }, 4000);
+
+      // Random Resource Simulation
+      function dynamicResources() {
+          const resourceItems = document.querySelectorAll('.gcp-resource-item span:last-child');
+          if (resourceItems.length >= 2) {
+              // Occasionally fluctuate instance or bucket count
+              if (Math.random() > 0.7) {
+                  const instances = Math.floor(Math.random() * 5 + 1);
+                  resourceItems[0].textContent = `${instances} instances`;
+              }
+          }
+      }
+      setInterval(dynamicResources, 10000);
+    </script>
+</body>
+</html>

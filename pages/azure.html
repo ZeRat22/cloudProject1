@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Azure Portal</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;600&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+    </style>
+</head>
+<body class="azure-body">
+
+    <!-- Header Navigation -->
+    <header class="header">
+        <nav class="nav container">
+            <div class="logo">
+                <i data-lucide="cloud" class="logo-icon"></i> <span class="logo-accent">CLOUD</span>NEXUS
+            </div>
+            <ul class="nav-links">
+                <li><a href="aws.html">AWS</a></li>
+                <li><a href="azure.html">Azure</a></li>
+                <li><a href="gcp.html">GCP</a></li>
+                <li><a href="../index.html" class="btn btn-primary">Main Site</a></li>
+            </ul>
+            <div class="menu-toggle">
+                <i data-lucide="menu"></i>
+            </div>
+        </nav>
+    </header>
+
+    <header class="azure-header" style="margin-top: 70px;">
+        <div style="display: flex; align-items: center; gap: 1rem;">
+            <i data-lucide="menu" id="azure-sidebar-toggle" style="cursor: pointer;"></i>
+            <span style="font-weight: 600; font-size: 1.1rem; letter-spacing: 0.5px;">Microsoft Azure</span>
+        </div>
+        <div class="azure-search-container">
+            <i data-lucide="search" size="16"></i>
+            <span style="font-size: 0.85rem; opacity: 0.8;">Search resources, services, and docs (G+/)</span>
+        </div>
+        <div style="display: flex; gap: 1.2rem; align-items: center;">
+            <i data-lucide="terminal" size="18" style="cursor: pointer;"></i>
+            <i data-lucide="filter" size="18" style="cursor: pointer;"></i>
+            <div style="position: relative; cursor: pointer;" id="notification-btn">
+                <i data-lucide="bell" size="18"></i>
+                <span id="notif-count" style="position: absolute; top: -5px; right: -5px; background: #e00; color: white; font-size: 0.6rem; padding: 1px 4px; border-radius: 50%; font-weight: 700;">2</span>
+            </div>
+            <i data-lucide="settings" size="18" style="cursor: pointer;"></i>
+            <i data-lucide="help-circle" size="18" style="cursor: pointer;"></i>
+            <div style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
+                <div style="width: 24px; height: 24px; background: #0078d4; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.7rem; font-weight: 700;">CN</div>
+                <span style="font-size: 0.85rem;">CloudNexus</span>
+            </div>
+        </div>
+    </header>
+
+    <div class="azure-main-container">
+        <aside class="azure-sidebar" id="azure-sidebar">
+            <div class="azure-nav-item active"><i data-lucide="home" size="18"></i> <span>Home</span></div>
+            <div class="azure-nav-item"><i data-lucide="layout-grid" size="18"></i> <span>Dashboard</span></div>
+            <div class="azure-nav-item"><i data-lucide="layers" size="18"></i> <span>All services</span></div>
+            <div style="margin-top: 1rem; border-top: 1px solid #e1dfdd; padding-top: 1rem;">
+                <div style="padding: 0.5rem 1rem; font-size: 0.7rem; color: #605e5c; font-weight: 700; text-transform: uppercase;">Favorites</div>
+                <div class="azure-nav-item"><i data-lucide="archive" size="18"></i> <span>Resource groups</span></div>
+                <div class="azure-nav-item"><i data-lucide="box" size="18"></i> <span>App Services</span></div>
+                <div class="azure-nav-item"><i data-lucide="database" size="18"></i> <span>SQL databases</span></div>
+                <div class="azure-nav-item"><i data-lucide="cpu" size="18"></i> <span>Virtual machines</span></div>
+                <div class="azure-nav-item"><i data-lucide="hard-drive" size="18"></i> <span>Storage accounts</span></div>
+            </div>
+        </aside>
+
+        <main class="azure-dashboard">
+            <!-- Action Tiles -->
+            <div class="azure-home-actions">
+                <div class="azure-action-tile">
+                    <i data-lucide="plus"></i>
+                    <span>Create a resource</span>
+                </div>
+                <div class="azure-action-tile">
+                    <i data-lucide="cpu"></i>
+                    <span>Virtual machines</span>
+                </div>
+                <div class="azure-action-tile">
+                    <i data-lucide="box"></i>
+                    <span>App Services</span>
+                </div>
+                <div class="azure-action-tile">
+                    <i data-lucide="hard-drive"></i>
+                    <span>Storage accounts</span>
+                </div>
+                <div class="azure-action-tile">
+                    <i data-lucide="database"></i>
+                    <span>SQL databases</span>
+                </div>
+                <div class="azure-action-tile">
+                    <i data-lucide="users"></i>
+                    <span>Microsoft Entra ID</span>
+                </div>
+            </div>
+
+            <!-- Recent Section -->
+            <div class="azure-section">
+                <div class="azure-section-header">
+                    <i data-lucide="clock" size="18"></i> Recent
+                </div>
+                <div class="azure-recent-card">
+                    <table class="azure-table">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Type</th>
+                                <th>Resource group</th>
+                                <th>Location</th>
+                                <th>Last visited</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><a href="#" class="azure-resource-link"><i data-lucide="cpu" size="14"></i> web-server-prod</a></td>
+                                <td>Virtual machine</td>
+                                <td>prod-resources</td>
+                                <td>East US</td>
+                                <td>2 minutes ago</td>
+                            </tr>
+                            <tr>
+                                <td><a href="#" class="azure-resource-link"><i data-lucide="box" size="14"></i> cloudnexus-api</a></td>
+                                <td>App Service</td>
+                                <td>api-rg</td>
+                                <td>West US 2</td>
+                                <td>1 hour ago</td>
+                            </tr>
+                            <tr>
+                                <td><a href="#" class="azure-resource-link"><i data-lucide="database" size="14"></i> users-db</a></td>
+                                <td>SQL database</td>
+                                <td>data-rg</td>
+                                <td>Central US</td>
+                                <td>Yesterday</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Navigate Section -->
+            <div class="azure-section">
+                <div class="azure-section-header">Navigate</div>
+                <div class="azure-nav-grid">
+                    <div class="azure-nav-card">
+                        <i data-lucide="credit-card" size="24"></i>
+                        <div>
+                            <h4>Subscriptions</h4>
+                            <p>Manage your billing and usage</p>
+                        </div>
+                    </div>
+                    <div class="azure-nav-card">
+                        <i data-lucide="archive" size="24"></i>
+                        <div>
+                            <h4>Resource groups</h4>
+                            <p>Organize your resources</p>
+                        </div>
+                    </div>
+                    <div class="azure-nav-card">
+                        <i data-lucide="layers" size="24"></i>
+                        <div>
+                            <h4>All resources</h4>
+                            <p>View and manage all your assets</p>
+                        </div>
+                    </div>
+                    <div class="azure-nav-card">
+                        <i data-lucide="layout-grid" size="24"></i>
+                        <div>
+                            <h4>Dashboard</h4>
+                            <p>Customize your overview</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tools Section -->
+            <div class="azure-section">
+                <div class="azure-section-header">Tools</div>
+                <div class="azure-nav-grid">
+                    <div class="azure-nav-card">
+                        <i data-lucide="activity" size="24"></i>
+                        <div>
+                            <h4>Azure Monitor</h4>
+                            <p>Full observability into your apps</p>
+                        </div>
+                    </div>
+                    <div class="azure-nav-card">
+                        <i data-lucide="shield-check" size="24"></i>
+                        <div>
+                            <h4>Microsoft Defender</h4>
+                            <p>Protect your cloud environment</p>
+                        </div>
+                    </div>
+                    <div class="azure-nav-card">
+                        <i data-lucide="pie-chart" size="24"></i>
+                        <div>
+                            <h4>Cost Management</h4>
+                            <p>Optimize your cloud spend</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div style="margin-top: 3rem; text-align: center; border-top: 1px solid #e1dfdd; padding-top: 2rem;">
+                <a href="../index.html" style="color: #0078d4; font-weight: 600; text-decoration: none;">&larr; Return to CloudNexus Home</a>
+            </div>
+        </main>
+    </div>
+
+    <script>
+      lucide.createIcons();
+
+      // Mobile Menu Toggle
+      const menuToggle = document.querySelector('.menu-toggle');
+      const navLinks = document.querySelector('.nav-links');
+      
+      if (menuToggle) {
+          menuToggle.addEventListener('click', () => {
+              navLinks.classList.toggle('active');
+          });
+      }
+
+      // Azure Sidebar Toggle
+      const azureSidebarToggle = document.getElementById('azure-sidebar-toggle');
+      const azureSidebar = document.getElementById('azure-sidebar');
+      
+      azureSidebarToggle.addEventListener('click', () => {
+          azureSidebar.classList.toggle('collapsed');
+      });
+
+      // Notifications
+      const notifBtn = document.getElementById('notification-btn');
+      const notifCount = document.getElementById('notif-count');
+      
+      notifBtn.addEventListener('click', () => {
+          alert("Recent Alerts:\n1. VM-Web-Server high CPU usage\n2. Billing alert: Threshold exceeded");
+          notifCount.style.display = 'none';
+      });
+
+      // Simulated Dynamic Uptime & Costs
+      setInterval(() => {
+          // Update uptime on App Service card if it exists
+          const uptimeEl = document.querySelector('.azure-card p[style*="font-size: 0.85rem"]');
+          if (uptimeEl && uptimeEl.textContent.includes('Uptime')) {
+              // Just a simple visual update simulation
+              let mins = Math.floor(Math.random() * 60);
+              uptimeEl.textContent = `Uptime: 14 days, 2h ${mins}m`;
+          }
+          
+          // Randomly trigger a new notification
+          if (Math.random() > 0.8 && notifCount.style.display === 'none') {
+              notifCount.textContent = "1";
+              notifCount.style.display = 'block';
+          }
+      }, 8000);
+
+      // VM Toggle Simulation
+      function toggleVM(el) {
+          const status = el.closest('.azure-card').querySelector('.vm-status');
+          if (status.textContent === 'Running') {
+              if (confirm("Stop Virtual Machine?")) {
+                  status.textContent = 'Stopping...';
+                  status.style.color = '#fbbc04';
+                  setTimeout(() => {
+                      status.textContent = 'Stopped';
+                      status.style.color = '#605e5c';
+                      el.style.color = '#34a853';
+                  }, 2000);
+              }
+          } else {
+              status.textContent = 'Starting...';
+              status.style.color = '#fbbc04';
+              setTimeout(() => {
+                  status.textContent = 'Running';
+                  status.style.color = '#34a853';
+                  el.style.color = '#e00';
+              }, 2000);
+          }
+      }
+
+      // Global Refresh
+      function refreshApp() {
+          const loader = document.getElementById('azure-loader');
+          loader.style.display = 'block';
+          setTimeout(() => {
+              loader.style.display = 'none';
+          }, 1500);
+      }
+    </script>
+</body>
+</html>
