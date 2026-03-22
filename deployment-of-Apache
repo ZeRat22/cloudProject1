@@ -31,20 +31,6 @@ aws ec2 authorize-security-group-ingress \
 --cidr 0.0.0.0/0 \
 --region $REGION
 
-aws ec2 authorize-security-group-ingress \
---group-id $SG_ID="sg-0f3deafe41edb66d2" \
---protocol http \
---port 80 \
---cidr 0.0.0.0/0 \
---region $REGION
-
-aws ec2 authorize-security-group-ingress \
---group-id $SG_ID="sg-0f3deafe41edb66d2" \
---protocol https \
---port 443 \
---cidr 0.0.0.0/0 \
---region $REGION
-
 echo "Finding latest Ubuntu AMI..."
 
 AMI_ID=$(aws ec2 describe-images \
