@@ -32,14 +32,14 @@ aws ec2 authorize-security-group-ingress \
 --region $REGION
 
 aws ec2 authorize-security-group-ingress \
---group-id $SG_ID \
+--group-id $SG_ID="sg-0f3deafe41edb66d2" \
 --protocol http \
 --port 80 \
 --cidr 0.0.0.0/0 \
 --region $REGION
 
 aws ec2 authorize-security-group-ingress \
---group-id $SG_ID \
+--group-id $SG_ID="sg-0f3deafe41edb66d2" \
 --protocol https \
 --port 443 \
 --cidr 0.0.0.0/0 \
